@@ -1,0 +1,162 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background: #000 url('./images/background.jpg') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 5%; /* Reduced from 10% to 5% */
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 15px;
+    width: 400px;
+    box-shadow: 0 0 20px rgba(11, 224, 64, 0.5);
+    backdrop-filter: blur(5px);
+    border: 1px solid #0000f4;
+    margin-left: 0; /* Added to ensure no extra margin */
+    transform: translateX(-20px); /* Optional: slight adjustment to fine-tune position */
+}
+
+h1 {
+    color: #00ced1;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(11, 224, 64, 0.5);
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #00ced1;
+}
+
+input {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #0000f4;
+    background: rgba(17, 17, 17, 0.8);
+    color: white;
+    font-size: 1rem;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.glow-on-hover {
+    width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #9400d3, #8a2be2, #00ced1, #120a8f, #0000cd, #002bff, #7a00ff, #5353ec, #0000ff);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+.result-container {
+    text-align: center;
+}
+
+.result-container h2 {
+    color: #00ced1;
+    margin-bottom: 1rem;
+}
+
+.result-box {
+    background: rgba(17, 17, 17, 0.8);
+    border: 1px solid #0000f4;
+    border-radius: 8px;
+    padding: 1.5rem;
+    font-size: 2rem;
+    color: #00ced1;
+    font-weight: bold;
+    min-height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(11, 224, 64, 0.5);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+        justify-content: center;
+    }
+    
+    .container {
+        width: 90%;
+        padding: 1.5rem;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+}
